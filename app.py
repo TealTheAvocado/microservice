@@ -38,7 +38,7 @@ def test_microservice():
 def get_data():
     data = get_data_from_mongodb()
     # Choose 4 random items from the data
-    selected_flashcards = random.sample(data, 4)
+    selected_flashcards = random.sample(data, 6)
     # Format data for the flashcards
     flashcards = []
     for item in selected_flashcards:
