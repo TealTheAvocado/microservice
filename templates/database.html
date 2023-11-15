@@ -8,16 +8,16 @@
     <table id="flashcardsTable">
         <tr>
             <th>
-                Shanghainese <button class="small-button" onclick="sortTable(0)">Sort</button>
+                Shanghainese 
             </th>
             <th>
-                Phonetics <button class="small-button" onclick="sortTable(1)">Sort</button>
+                Phonetics 
             </th>
             <th>
-                English <button class="small-button" onclick="sortTable(2)">Sort</button>
+                English 
             </th>
             <th>
-                Category <button class="small-button" onclick="sortTable(3)">Sort</button>
+                Category 
             </th>
         </tr>
         {% for record in database_records %}
@@ -29,29 +29,5 @@
         </tr>
         {% endfor %}
     </table>
-    <script>
-        function sortTable(column) {
-            var table, rows, switching, i, x, y, shouldSwitch;
-            table = document.getElementById("flashcardsTable");
-            switching = true;
-            while (switching) {
-            switching = false;
-            rows = table.rows;
-            for (i = 1; i < rows.length - 1; i++) {
-                shouldSwitch = false;
-                x = rows[i].getElementsByTagName("td")[column];
-                y = rows[i + 1].getElementsByTagName("td")[column];
-                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-                shouldSwitch = true;
-                break;
-                }
-            }
-            if (shouldSwitch) {
-                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-                switching = true;
-            }
-            }
-        }
-    </script>
 </body>
 </html>
