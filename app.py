@@ -4,13 +4,14 @@ from pymongo import MongoClient
 from pymongo.server_api import ServerApi
 import random
 import requests
+import certifi
 from flask import Flask, render_template, redirect, url_for, request
 
 app = Flask(__name__)
 
 # MongoDB configuration
 MONGO_URI = 'mongodb+srv://database_owner:DatabasePassword@cluster0.ep9zacz.mongodb.net/?retryWrites=true&w=majority'
-client = MongoClient(MONGO_URI, server_api = ServerApi('1'))
+client = MongoClient(MONGO_URI, server_api=ServerApi('1'), tlsCAFile=certifi.where())
 db = client.flashcards
 collection = db.flashcards
 
